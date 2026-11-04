@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/livewire/src/**/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+        'Courier New', monospace;
+
+    --color-ink: #111827;
+    --color-ink-soft: #334155;
+    --color-muted: #64748b;
+    --color-line: #e2e8f0;
+    --color-surface: #f8fafc;
+    --color-card: #ffffff;
+
+    --color-primary: #0f766e;
+    --color-primary-strong: #115e59;
+    --color-primary-soft: #ccfbf1;
+
+    --color-accent: #f59e0b;
+    --color-accent-soft: #fef3c7;
+
+    --color-success: #15803d;
+    --color-success-soft: #dcfce7;
+
+    --color-danger: #b91c1c;
+    --color-danger-soft: #fee2e2;
+
+    --radius-card: 0.75rem;
+    --radius-control: 0.5rem;
+}
+
+@layer base {
+    html {
+        color-scheme: light;
+    }
+
+    body {
+        @apply bg-surface text-ink antialiased;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}

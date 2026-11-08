@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">ParkirKu concept C — ticket stub with punched P</title>
+  <g id="symbol">
+    <path fill="#111827" fill-rule="evenodd" d="M44 72 H212 A16 16 0 0 1 228 88 V168 A16 16 0 0 1 212 184 H44 A16 16 0 0 1 28 168 V88 A16 16 0 0 1 44 72 Z M172 72 H180 V184 H172 Z M162 72 A10 10 0 0 1 182 72 Z M162 184 A10 10 0 0 0 182 184 Z M41 128 A9 9 0 1 1 59 128 A9 9 0 1 1 41 128 Z M70 162 V94 H112 A18 18 0 0 1 112 130 H88 V162 H70 Z M88 102 H105 A17 17 0 0 1 105 124 H88 Z M192 112 H197 V144 H192 Z M202 112 H211 V144 H202 Z M216 112 H221 V144 H216 Z"/>
+  </g>
+</svg>

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Dashboard') · {{ config('app.name') }}</title>
+    <link rel="icon" href="{{ asset('logo.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ asset('favicon-32.png') }}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{ asset('favicon-16.png') }}" sizes="16x16" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>

@@ -31,7 +31,7 @@ class DashboardController extends Controller
         ];
 
         try {
-            $response = Http::timeout(3)->get(rtrim(config('app.internal_api_url'), '/').'/api/stats');
+            $response = Http::timeout(3)->get(rtrim(config('services.internal_api.base_url'), '/').'/api/stats');
 
             return $response->successful()
                 ? array_merge($fallback, $response->json())

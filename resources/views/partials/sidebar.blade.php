@@ -1,8 +1,7 @@
 <div class="flex h-full flex-col">
     <div class="flex h-16 items-center gap-3 border-b border-white/10 px-5">
-        <a href="{{ route('dashboard') }}" class="flex items-center gap-3">
-            <span class="flex size-9 items-center justify-center rounded-control bg-accent text-sm font-bold text-ink">P</span>
-            <span class="text-base font-semibold tracking-tight text-white">ParkirKu</span>
+        <a href="{{ route('dashboard') }}" class="flex items-center gap-3" aria-label="ParkirKu">
+            <x-ui.logo variant="teal" />
         </a>
     </div>
 

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">ParkirKu logo</title>
+  <g id="symbol">
+    <rect x="4" y="4" width="248" height="248" rx="56" fill="#0F766E"/>
+    <path fill="#FFFFFF" fill-rule="evenodd" d="M73.7 211.6 V62.5 H139.7 A52.9 52.9 0 0 1 139.7 168.3 H105.3 V211.6 Z M105.3 99.9 H133.2 A26.5 26.5 0 0 1 133.2 152.8 H105.3 Z M132.5 179 H140.5 V188 H132.5 Z M132.5 198 H140.5 V207 H132.5 Z"/>
+    <rect x="72" y="178" width="7" height="8" rx="3.5" fill="#F59E0B"/>
+  </g>
+</svg>

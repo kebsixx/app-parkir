@@ -67,8 +67,6 @@ return [
 
     'timezone' => 'Asia/Jakarta',
 
-    'internal_api_url' => env('INTERNAL_API_URL', 'http://127.0.0.1:8011'),
-
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

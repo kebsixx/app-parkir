@@ -29,7 +29,7 @@ class ReportController extends Controller
         $error = null;
 
         try {
-            $response = Http::timeout(5)->get(rtrim(config('app.internal_api_url'), '/').'/api/parking-sessions', [
+            $response = Http::timeout(5)->get(rtrim(config('services.internal_api.base_url'), '/').'/api/parking-sessions', [
                 'status' => 'completed',
                 'date_from' => $dateFrom,
                 'date_to' => $dateTo,

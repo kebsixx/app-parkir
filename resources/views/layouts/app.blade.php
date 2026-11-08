@@ -33,11 +33,11 @@
                 <div class="flex h-16 items-center gap-3 px-4 sm:px-6 lg:px-8">
                     <button
                         type="button"
-                        class="inline-flex size-10 items-center justify-center rounded-control border border-line text-ink-soft lg:hidden"
+                        class="inline-flex size-10 items-center justify-center rounded-control border border-line text-ink-soft transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 lg:hidden"
                         @click="sidebarOpen = true"
                         aria-label="Buka menu"
                     >
-                        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                             <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
                         </svg>
                     </button>
@@ -51,16 +51,18 @@
                 </div>
             </header>
 
-            <main class="flex-1 px-4 py-6 sm:px-6 lg:px-8">
+            <main class="flex-1 px-4 py-6 pb-24 sm:px-6 lg:px-8 lg:pb-6">
                 @include('partials.alert')
                 @yield('content')
             </main>
 
-            <footer class="border-t border-line px-4 py-4 text-xs text-muted sm:px-6 lg:px-8">
+            <footer class="border-t border-line px-4 py-4 pb-24 text-xs text-muted sm:px-6 lg:px-8 lg:pb-4">
                 {{ config('app.name') }} · Sistem parkir kendaraan
             </footer>
         </div>
     </div>
+
+    @include('partials.bottom-nav')
 
     @livewireScripts
 </body>

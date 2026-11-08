@@ -21,7 +21,6 @@
             </div>
 
             <div class="max-w-md">
-                <p class="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent">Parkir tanpa ribet</p>
                 <h1 class="text-4xl font-semibold leading-tight tracking-tight xl:text-5xl">
                     Catat masuk, hitung keluar, selesai.
                 </h1>
@@ -45,7 +44,7 @@
                 </dl>
             </div>
 
-            <p class="font-mono text-xs text-slate-500">PKR / 2026</p>
+            <p class="font-mono text-xs text-slate-400">PKR / 2026</p>
         </section>
 
         <section class="flex items-center justify-center px-5 py-10 sm:px-8">

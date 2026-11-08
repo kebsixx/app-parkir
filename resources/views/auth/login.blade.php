@@ -5,8 +5,7 @@
 @section('content')
     <div class="rounded-card border border-line bg-card p-6 shadow-sm sm:p-8">
         <div class="mb-6">
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">Area petugas</p>
-            <h1 class="mt-2 text-2xl font-semibold tracking-tight text-ink">Masuk ke ParkirKu</h1>
+            <h1 class="text-2xl font-semibold tracking-tight text-ink">Masuk ke ParkirKu</h1>
             <p class="mt-2 text-sm leading-relaxed text-muted">Gunakan akun yang diberikan admin untuk mengakses operasional parkir.</p>
         </div>
 

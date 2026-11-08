@@ -17,15 +17,15 @@
                 </div>
                 <div>
                     <dt class="text-xs text-muted">Jenis</dt>
-                    <dd class="mt-1 font-medium text-ink">{{ $vehicle->type->name }} — Rp {{ number_format($vehicle->type->hourly_rate, 0, ',', '.') }}/jam</dd>
+                    <dd class="mt-1 font-medium text-ink">{{ $vehicle->type->name }} · Rp {{ number_format($vehicle->type->hourly_rate, 0, ',', '.') }}/jam</dd>
                 </div>
                 <div>
                     <dt class="text-xs text-muted">Pemilik</dt>
-                    <dd class="mt-1 text-ink-soft">{{ $vehicle->owner_name ?: '—' }}</dd>
+                    <dd class="mt-1 text-ink-soft">{{ $vehicle->owner_name ?: '-' }}</dd>
                 </div>
                 <div>
                     <dt class="text-xs text-muted">Merek / warna</dt>
-                    <dd class="mt-1 text-ink-soft">{{ trim(($vehicle->brand ?: '—').' / '.($vehicle->color ?: '—')) }}</dd>
+                    <dd class="mt-1 text-ink-soft">{{ trim(($vehicle->brand ?: '-').' / '.($vehicle->color ?: '-')) }}</dd>
                 </div>
             </dl>
         </x-ui.card>
@@ -36,32 +36,32 @@
                     <x-ui.empty-state title="Belum ada riwayat" description="Kendaraan ini belum pernah tercatat parkir." />
                 </div>
             @else
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm">
+                <div class="overflow-x-auto overscroll-x-contain touch-pan-x touch-pan-y">
+                    <table class="w-full min-w-[720px] text-left text-sm">
                         <thead class="border-b border-line bg-surface/60 text-xs uppercase tracking-wider text-muted">
                             <tr>
-                                <th class="px-5 py-3 font-medium">Tiket</th>
-                                <th class="px-5 py-3 font-medium">Masuk</th>
-                                <th class="px-5 py-3 font-medium">Keluar</th>
-                                <th class="px-5 py-3 font-medium">Durasi</th>
-                                <th class="px-5 py-3 text-right font-medium">Total</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Tiket</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Masuk</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Keluar</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Durasi</th>
+                                <th scope="col" class="px-5 py-3 text-right font-medium whitespace-nowrap">Total</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-line">
                             @foreach ($vehicle->parkingSessions as $session)
                                 <tr>
-                                    <td class="px-5 py-3"><x-ui.ticket-code :value="$session->ticket_code" /></td>
-                                    <td class="px-5 py-3 text-ink-soft">{{ $session->check_in_at->format('d M Y, H:i') }}</td>
-                                    <td class="px-5 py-3 text-ink-soft">{{ $session->check_out_at?->format('d M Y, H:i') ?? '—' }}</td>
-                                    <td class="px-5 py-3 text-ink-soft">
+                                    <td class="px-5 py-3 whitespace-nowrap"><x-ui.ticket-code :value="$session->ticket_code" /></td>
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">{{ $session->check_in_at->format('d M Y, H:i') }}</td>
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">{{ $session->check_out_at?->format('d M Y, H:i') ?? '-' }}</td>
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">
                                         @if ($session->duration_minutes)
                                             {{ intdiv($session->duration_minutes, 60) }}j {{ $session->duration_minutes % 60 }}m
                                         @else
                                             {{ intdiv($session->elapsedMinutes(), 60) }}j {{ $session->elapsedMinutes() % 60 }}m
                                         @endif
                                     </td>
-                                    <td class="px-5 py-3 text-right font-medium text-ink">
-                                        {{ $session->total_fee ? 'Rp '.number_format($session->total_fee, 0, ',', '.') : '—' }}
+                                    <td class="px-5 py-3 whitespace-nowrap text-right font-medium text-ink">
+                                        {{ $session->total_fee ? 'Rp '.number_format($session->total_fee, 0, ',', '.') : '-' }}
                                     </td>
                                 </tr>
                             @endforeach

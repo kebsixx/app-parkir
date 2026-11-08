@@ -63,41 +63,41 @@
                     />
                 </div>
             @else
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm">
+                <div class="overflow-x-auto overscroll-x-contain touch-pan-x touch-pan-y">
+                    <table class="w-full min-w-[980px] text-left text-sm">
                         <thead class="border-b border-line bg-surface/60 text-xs uppercase tracking-wider text-muted">
                             <tr>
-                                <th class="px-5 py-3 font-medium">Tiket</th>
-                                <th class="px-5 py-3 font-medium">Plat nomor</th>
-                                <th class="px-5 py-3 font-medium">Jenis</th>
-                                <th class="px-5 py-3 font-medium">Masuk</th>
-                                <th class="px-5 py-3 font-medium">Keluar</th>
-                                <th class="px-5 py-3 font-medium">Durasi</th>
-                                <th class="px-5 py-3 text-right font-medium">Total</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Tiket</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Plat nomor</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jenis</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Masuk</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Keluar</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Durasi</th>
+                                <th scope="col" class="px-5 py-3 text-right font-medium whitespace-nowrap">Total</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-line">
                             @foreach ($sessions as $s)
                                 <tr class="hover:bg-surface/50">
-                                    <td class="px-5 py-3"><x-ui.ticket-code :value="$s['ticket_code']" /></td>
-                                    <td class="px-5 py-3">
-                                        <x-ui.plate :value="$s['vehicle']['plate_number'] ?? '—'" />
+                                    <td class="px-5 py-3 whitespace-nowrap"><x-ui.ticket-code :value="$s['ticket_code']" /></td>
+                                    <td class="px-5 py-3 whitespace-nowrap">
+                                        <x-ui.plate :value="$s['vehicle']['plate_number'] ?? '-'" />
                                     </td>
-                                    <td class="px-5 py-3 text-ink-soft">{{ $s['vehicle']['type']['name'] ?? '—' }}</td>
-                                    <td class="px-5 py-3 text-ink-soft">
-                                        {{ isset($s['check_in_at']) ? \Carbon\Carbon::parse($s['check_in_at'])->format('d/m/Y H:i') : '—' }}
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">{{ $s['vehicle']['type']['name'] ?? '-' }}</td>
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">
+                                        {{ isset($s['check_in_at']) ? \Carbon\Carbon::parse($s['check_in_at'])->format('d/m/Y H:i') : '-' }}
                                     </td>
-                                    <td class="px-5 py-3 text-ink-soft">
-                                        {{ isset($s['check_out_at']) ? \Carbon\Carbon::parse($s['check_out_at'])->format('d/m/Y H:i') : '—' }}
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">
+                                        {{ isset($s['check_out_at']) ? \Carbon\Carbon::parse($s['check_out_at'])->format('d/m/Y H:i') : '-' }}
                                     </td>
-                                    <td class="px-5 py-3 text-ink-soft">
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">
                                         @if (isset($s['duration_minutes']))
                                             {{ intdiv($s['duration_minutes'], 60) }}j {{ $s['duration_minutes'] % 60 }}m
                                         @else
-                                            —
+                                            -
                                         @endif
                                     </td>
-                                    <td class="px-5 py-3 text-right font-semibold text-ink">
+                                    <td class="px-5 py-3 whitespace-nowrap text-right font-semibold text-ink">
                                         Rp {{ number_format($s['total_fee'] ?? 0, 0, ',', '.') }}
                                     </td>
                                 </tr>

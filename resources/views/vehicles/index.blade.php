@@ -38,25 +38,25 @@
                 </x-ui.empty-state>
             </div>
         @else
-            <div class="hidden overflow-x-auto md:block">
-                <table class="w-full text-left text-sm">
+            <div class="hidden overflow-x-auto overscroll-x-contain touch-pan-x touch-pan-y md:block">
+                <table class="w-full min-w-[720px] text-left text-sm">
                     <thead class="border-b border-line bg-surface/60 text-xs uppercase tracking-wider text-muted">
                         <tr>
-                            <th class="px-5 py-3 font-medium">Nomor polisi</th>
-                            <th class="px-5 py-3 font-medium">Jenis</th>
-                            <th class="px-5 py-3 font-medium">Pemilik</th>
-                            <th class="px-5 py-3 font-medium">Merek / warna</th>
-                            <th class="px-5 py-3 text-right font-medium">Aksi</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Nomor polisi</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jenis</th>
+                            <th scope="col" class="px-5 py-3 font-medium">Pemilik</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Merek / warna</th>
+                            <th scope="col" class="px-5 py-3 text-right font-medium whitespace-nowrap">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-line">
                         @foreach ($vehicles as $vehicle)
                             <tr class="hover:bg-surface/50">
-                                <td class="px-5 py-3"><x-ui.plate :value="$vehicle->plate_number" /></td>
-                                <td class="px-5 py-3 text-ink-soft">{{ $vehicle->type->name }}</td>
-                                <td class="px-5 py-3 text-ink-soft">{{ $vehicle->owner_name ?: '—' }}</td>
-                                <td class="px-5 py-3 text-muted">{{ trim(($vehicle->brand ?: '—').' / '.($vehicle->color ?: '—')) }}</td>
-                                <td class="px-5 py-3">
+                                <td class="px-5 py-3 whitespace-nowrap"><x-ui.plate :value="$vehicle->plate_number" /></td>
+                                <td class="px-5 py-3 whitespace-nowrap text-ink-soft">{{ $vehicle->type->name }}</td>
+                                <td class="px-5 py-3 text-ink-soft"><span class="block max-w-[14rem] truncate">{{ $vehicle->owner_name ?: '-' }}</span></td>
+                                <td class="px-5 py-3 whitespace-nowrap text-muted">{{ trim(($vehicle->brand ?: '-').' / '.($vehicle->color ?: '-')) }}</td>
+                                <td class="px-5 py-3 whitespace-nowrap">
                                     <div class="flex items-center justify-end gap-2">
                                         <x-ui.button :href="route('vehicles.show', $vehicle)" variant="ghost" size="sm">Detail</x-ui.button>
                                         <x-ui.button :href="route('vehicles.edit', $vehicle)" variant="secondary" size="sm">Edit</x-ui.button>
@@ -80,7 +80,7 @@
                             <div class="min-w-0">
                                 <x-ui.plate :value="$vehicle->plate_number" />
                                 <p class="mt-1 text-sm text-muted">{{ $vehicle->type->name }}{{ $vehicle->owner_name ? ' · '.$vehicle->owner_name : '' }}</p>
-                                <p class="mt-0.5 text-xs text-muted">{{ trim(($vehicle->brand ?: '—').' / '.($vehicle->color ?: '—')) }}</p>
+                                <p class="mt-0.5 text-xs text-muted">{{ trim(($vehicle->brand ?: '-').' / '.($vehicle->color ?: '-')) }}</p>
                             </div>
                             <div class="flex shrink-0 flex-col items-end gap-1.5">
                                 <x-ui.button :href="route('vehicles.edit', $vehicle)" variant="secondary" size="sm">Edit</x-ui.button>

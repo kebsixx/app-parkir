@@ -16,23 +16,23 @@
                 </x-ui.empty-state>
             </div>
         @else
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm">
+            <div class="overflow-x-auto overscroll-x-contain touch-pan-x touch-pan-y">
+                <table class="w-full min-w-[640px] text-left text-sm">
                     <thead class="border-b border-line bg-surface/60 text-xs uppercase tracking-wider text-muted">
                         <tr>
-                            <th class="px-5 py-3 font-medium">Jenis kendaraan</th>
-                            <th class="px-5 py-3 font-medium">Tarif / jam</th>
-                            <th class="px-5 py-3 font-medium">Jumlah kendaraan</th>
-                            <th class="px-5 py-3 text-right font-medium">Aksi</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jenis kendaraan</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Tarif / jam</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jumlah kendaraan</th>
+                            <th scope="col" class="px-5 py-3 text-right font-medium whitespace-nowrap">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-line">
                         @foreach ($vehicleTypes as $type)
                             <tr class="hover:bg-surface/50">
-                                <td class="px-5 py-3 font-medium text-ink">{{ $type->name }}</td>
-                                <td class="px-5 py-3 text-ink-soft">Rp {{ number_format($type->hourly_rate, 0, ',', '.') }}</td>
-                                <td class="px-5 py-3 text-muted">{{ $type->vehicles_count }} kendaraan</td>
-                                <td class="px-5 py-3">
+                                <td class="px-5 py-3 whitespace-nowrap font-medium text-ink">{{ $type->name }}</td>
+                                <td class="px-5 py-3 whitespace-nowrap text-ink-soft">Rp {{ number_format($type->hourly_rate, 0, ',', '.') }}</td>
+                                <td class="px-5 py-3 whitespace-nowrap text-muted">{{ $type->vehicles_count }} kendaraan</td>
+                                <td class="px-5 py-3 whitespace-nowrap">
                                     <div class="flex items-center justify-end gap-2">
                                         <x-ui.button :href="route('vehicle-types.edit', $type)" variant="secondary" size="sm">Edit</x-ui.button>
                                         <form method="POST" action="{{ route('vehicle-types.destroy', $type) }}" onsubmit="return confirm('Hapus jenis kendaraan ini?')">

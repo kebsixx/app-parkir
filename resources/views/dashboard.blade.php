@@ -51,29 +51,29 @@
                     </x-ui.empty-state>
                 </div>
             @else
-                <div class="hidden overflow-x-auto md:block">
-                    <table class="w-full text-left text-sm">
+                <div class="hidden overflow-x-auto overscroll-x-contain touch-pan-x touch-pan-y md:block">
+                    <table class="w-full min-w-[640px] text-left text-sm">
                         <thead class="border-b border-line bg-surface/60 text-xs uppercase tracking-wider text-muted">
                             <tr>
-                                <th class="px-5 py-3 font-medium">Tiket</th>
-                                <th class="px-5 py-3 font-medium">Kendaraan</th>
-                                <th class="px-5 py-3 font-medium">Jenis</th>
-                                <th class="px-5 py-3 font-medium">Masuk</th>
-                                <th class="px-5 py-3 text-right font-medium">Aksi</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Tiket</th>
+                                <th scope="col" class="px-5 py-3 font-medium">Kendaraan</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jenis</th>
+                                <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Masuk</th>
+                                <th scope="col" class="px-5 py-3 text-right font-medium whitespace-nowrap">Aksi</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-line">
                             @foreach ($activeSessions as $session)
                                 <tr class="hover:bg-surface/50">
-                                    <td class="px-5 py-3">
+                                    <td class="px-5 py-3 whitespace-nowrap">
                                         <x-ui.ticket-code :value="$session->ticket_code" />
                                     </td>
-                                    <td class="px-5 py-3">
+                                    <td class="px-5 py-3 whitespace-nowrap">
                                         <x-ui.plate :value="$session->vehicle->plate_number" />
                                     </td>
-                                    <td class="px-5 py-3 text-ink-soft">{{ $session->vehicle->type->name }}</td>
-                                    <td class="px-5 py-3 text-ink-soft">{{ $session->check_in_at->format('H:i') }}</td>
-                                    <td class="px-5 py-3 text-right">
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">{{ $session->vehicle->type->name }}</td>
+                                    <td class="px-5 py-3 whitespace-nowrap text-ink-soft">{{ $session->check_in_at->format('H:i') }}</td>
+                                    <td class="px-5 py-3 whitespace-nowrap text-right">
                                         <x-ui.button :href="route('parking.checkout', $session)" size="sm" variant="secondary">
                                             Checkout
                                         </x-ui.button>

@@ -18,7 +18,7 @@
         <option value="">Pilih jenis kendaraan</option>
         @foreach ($vehicleTypes as $type)
             <option value="{{ $type->id }}" @selected((string) old('vehicle_type_id', $vehicle->vehicle_type_id ?? '') === (string) $type->id)>
-                {{ $type->name }} — Rp {{ number_format($type->hourly_rate, 0, ',', '.') }}/jam
+                {{ $type->name }} · Rp {{ number_format($type->hourly_rate, 0, ',', '.') }}/jam
             </option>
         @endforeach
     </x-ui.select>

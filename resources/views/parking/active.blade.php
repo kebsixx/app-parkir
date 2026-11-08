@@ -41,34 +41,34 @@
                 </x-ui.empty-state>
             </div>
         @else
-            <div class="hidden overflow-x-auto md:block">
-                <table class="w-full text-left text-sm">
+            <div class="hidden overflow-x-auto overscroll-x-contain touch-pan-x touch-pan-y md:block">
+                <table class="w-full min-w-[720px] text-left text-sm">
                     <thead class="border-b border-line bg-surface/60 text-xs uppercase tracking-wider text-muted">
                         <tr>
-                            <th class="px-5 py-3 font-medium">Tiket</th>
-                            <th class="px-5 py-3 font-medium">Kendaraan</th>
-                            <th class="px-5 py-3 font-medium">Jenis</th>
-                            <th class="px-5 py-3 font-medium">Masuk</th>
-                            <th class="px-5 py-3 font-medium">Durasi</th>
-                            <th class="px-5 py-3 text-right font-medium">Aksi</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Tiket</th>
+                            <th scope="col" class="px-5 py-3 font-medium">Kendaraan</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jenis</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Masuk</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Durasi</th>
+                            <th scope="col" class="px-5 py-3 text-right font-medium whitespace-nowrap">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-line">
                         @foreach ($sessions as $session)
                             <tr class="hover:bg-surface/50">
-                                <td class="px-5 py-3"><x-ui.ticket-code :value="$session->ticket_code" /></td>
+                                <td class="px-5 py-3 whitespace-nowrap"><x-ui.ticket-code :value="$session->ticket_code" /></td>
                                 <td class="px-5 py-3">
                                     <x-ui.plate :value="$session->vehicle->plate_number" />
                                     @if ($session->vehicle->owner_name)
-                                        <p class="mt-1 text-xs text-muted">{{ $session->vehicle->owner_name }}</p>
+                                        <p class="mt-1 max-w-[14rem] truncate text-xs text-muted">{{ $session->vehicle->owner_name }}</p>
                                     @endif
                                 </td>
-                                <td class="px-5 py-3 text-ink-soft">{{ $session->vehicle->type->name }}</td>
-                                <td class="px-5 py-3 text-ink-soft">{{ $session->check_in_at->format('H:i') }}</td>
-                                <td class="px-5 py-3">
+                                <td class="px-5 py-3 whitespace-nowrap text-ink-soft">{{ $session->vehicle->type->name }}</td>
+                                <td class="px-5 py-3 whitespace-nowrap text-ink-soft">{{ $session->check_in_at->format('H:i') }}</td>
+                                <td class="px-5 py-3 whitespace-nowrap">
                                     <x-ui.badge variant="info">{{ intdiv($session->elapsedMinutes(), 60) }}j {{ $session->elapsedMinutes() % 60 }}m</x-ui.badge>
                                 </td>
-                                <td class="px-5 py-3 text-right">
+                                <td class="px-5 py-3 text-right whitespace-nowrap">
                                     <x-ui.button :href="route('parking.checkout', $session)" size="sm">Checkout</x-ui.button>
                                 </td>
                             </tr>

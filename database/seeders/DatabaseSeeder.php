@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
         });
 
         foreach ($vehicles->take(5) as $index => $vehicle) {
-            $checkIn = now()->subMinutes(20 + ($index * 25));
+            $checkIn = now()->subDays(2 + ($index * 5));
 
             ParkingSession::updateOrCreate(
                 ['ticket_code' => 'PKR-'.now()->format('Ymd').'-A'.str_pad((string) ($index + 1), 3, '0', STR_PAD_LEFT)],
@@ -75,8 +75,8 @@ class DatabaseSeeder extends Seeder
         }
 
         foreach ($vehicles->skip(5) as $index => $vehicle) {
-            $checkIn = now()->subHours(3)->subMinutes($index * 7);
-            $checkOut = now()->subMinutes(30 + $index * 5);
+            $checkIn = now()->subDays(8 + ($index * 2));
+            $checkOut = now()->subDays(8 + ($index * 2))->subMinutes(30 + $index * 5);
             $minutes = max(1, (int) $checkIn->diffInMinutes($checkOut));
             $fee = (int) ceil($minutes / 60) * $vehicle->type->hourly_rate;
             $paid = (int) (ceil($fee / 5000) * 5000);

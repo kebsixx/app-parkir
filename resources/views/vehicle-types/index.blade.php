@@ -22,8 +22,8 @@
                         <tr>
                             <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jenis kendaraan</th>
                             <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Tarif / jam</th>
-                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jumlah mobil (master)</th>
-                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Aktif (status parked)</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Mobil tercatat</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Mobil sedang parkir</th>
                             <th scope="col" class="px-5 py-3 text-right font-medium whitespace-nowrap">Aksi</th>
                         </tr>
                     </thead>

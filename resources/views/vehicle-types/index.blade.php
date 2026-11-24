@@ -22,6 +22,7 @@
                         <tr>
                             <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jenis kendaraan</th>
                             <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Tarif / jam</th>
+                            <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Jumlah mobil (master)</th>
                             <th scope="col" class="px-5 py-3 font-medium whitespace-nowrap">Aktif (status parked)</th>
                             <th scope="col" class="px-5 py-3 text-right font-medium whitespace-nowrap">Aksi</th>
                         </tr>
@@ -31,9 +32,8 @@
                             <tr class="hover:bg-surface/50">
                                 <td class="px-5 py-3 whitespace-nowrap font-medium text-ink">{{ $type->name }}</td>
                                 <td class="px-5 py-3 whitespace-nowrap text-ink-soft">Rp {{ number_format($type->hourly_rate, 0, ',', '.') }}</td>
-                                <td class="px-5 py-3 whitespace-nowrap text-muted">
-                                    {{ $type->activeSessionCount() }}
-                                </td>
+                                <td class="px-5 py-3 whitespace-nowrap text-muted">{{ $type->vehicles_count ?? 0 }}</td>
+                                <td class="px-5 py-3 whitespace-nowrap text-muted">{{ $type->activeSessionCount() }}</td>
                                 <td class="px-5 py-3 whitespace-nowrap">
                                     <div class="flex items-center justify-end gap-2">
                                         <x-ui.button :href="route('vehicle-types.edit', $type)" variant="secondary" size="sm">Edit</x-ui.button>

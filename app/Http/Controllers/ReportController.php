@@ -18,8 +18,8 @@ class ReportController extends Controller
         ]);
 
         $dateFrom = $validator->fails()
-            ? today()->toDateString()
-            : $request->query('date_from', today()->toDateString());
+            ? now()->startOfMonth()->toDateString()
+            : $request->query('date_from', now()->startOfMonth()->toDateString());
         $dateTo = $validator->fails()
             ? today()->toDateString()
             : $request->query('date_to', today()->toDateString());
